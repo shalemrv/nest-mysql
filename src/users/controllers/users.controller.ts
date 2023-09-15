@@ -60,6 +60,11 @@ export class UsersController {
         return this.userService.storeProfile(id, createUserProfileDto);
     }
 
+    @Get(':id/posts')
+    async indexPosts(@Param('id') id: number) {
+        return await this.userService.indexPosts(id);
+    }
+
     @Post(':id/posts')
     createUserPost(
         @Param('id', ParseIntPipe) id: number,
@@ -67,5 +72,7 @@ export class UsersController {
     ) {
         return this.userService.storePost(id, createPostDto);
     }
+
+
 
 }

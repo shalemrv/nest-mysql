@@ -86,4 +86,12 @@ export class UsersService {
 
         return await this.postRepository.save(newPost);
     }
+
+    async indexPosts(id: number) {
+        let _ = await this.getUser(id);
+
+        return await this.postRepository.find({
+            where: { id }
+        })
+    }
 }
