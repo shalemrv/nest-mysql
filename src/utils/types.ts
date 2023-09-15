@@ -16,11 +16,11 @@ export type CreateUserProfileParams = {
 }
 
 export type CreatePostParams = {
-    username: string;
-    password: string;
+    title: string;
+    description: string;
 };
 
 export type UpdatePostParams = {
-    username: string;
-    password: string;
+    title: string;
+    description: string;
 };

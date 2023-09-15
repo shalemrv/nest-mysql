@@ -13,6 +13,7 @@ import { UsersService } from '../services/users.service';
 
 import { CreateUserDto, UpdateUserDto} from 'src/dtos/users.dto';
 import { CreateUserProfileDto } from 'src/dtos/user-profiles.dto';
+import { CreatePostDto } from 'src/dtos/posts.dto';
 
 // import { CreateUserDto } from '../../dtos/users/CreateUser.dto';
 // import { UpdateUserDto } from '../../dtos/users/UpdateUser.dto';
@@ -51,7 +52,7 @@ export class UsersController {
         return await this.userService.delete(id);
     }
 
-    @Post(':id/profiles')
+    @Post(':id/profile')
     createUserProfile(
         @Param('id', ParseIntPipe) id: number,
         @Body() createUserProfileDto: CreateUserProfileDto
@@ -59,12 +60,12 @@ export class UsersController {
         return this.userService.storeProfile(id, createUserProfileDto);
     }
 
-    @Post(':id/profiles')
+    @Post(':id/posts')
     createUserPost(
         @Param('id', ParseIntPipe) id: number,
-        @Body() createUserProfileDto: CreateUserProfileDto
+        @Body() createPostDto: CreatePostDto
     ) {
-        return this.userService.storePost(id, createUserProfileDto);
+        return this.userService.storePost(id, createPostDto);
     }
 
 }
